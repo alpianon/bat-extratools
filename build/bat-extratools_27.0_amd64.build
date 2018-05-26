@@ -1,0 +1,2155 @@
+ dpkg-buildpackage -rfakeroot -us -uc
+dpkg-buildpackage: warning: using a gain-root-command while being root
+dpkg-buildpackage: info: source package bat-extratools
+dpkg-buildpackage: info: source version 27.0
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Armijn Hemel <armijn@binaryanalysis.org>
+ dpkg-source --before-build bat-extratools
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+dh: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_testdir
+   dh_auto_clean
+dh_auto_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+ dpkg-source -b bat-extratools
+dpkg-source: warning: no source format specified in debian/source/format, see dpkg-source(1)
+dpkg-source: warning: source directory 'bat-extratools' is not <sourcepackage>-<upstreamversion> 'bat-extratools-27.0'
+dpkg-source: info: using source format '1.0'
+dpkg-source: info: building bat-extratools in bat-extratools_27.0.tar.gz
+dpkg-source: info: building bat-extratools in bat-extratools_27.0.dsc
+ debian/rules build
+dh build 
+dh: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_testdir
+   dh_update_autotools_config
+   dh_auto_configure
+dh_auto_configure: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_auto_build
+dh_auto_build: Compatibility levels before 9 are deprecated (level 7 in use)
+	make -j1
+make[1]: ingresso nella directory "/home/alberto/BAT/bat-extratools"
+cd squashfs-broadcom; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom"
+gcc -I. -Ilzma_src/C -I/include -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2   -c -o unsquashfs.o unsquashfs.c
+gcc -c -I. -Ilzma_src/C -I/include -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2  lzma_src/C/LzmaEnc.c -o LzmaEnc.o
+gcc -c -I. -Ilzma_src/C -I/include -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2  lzma_src/C/LzFind.c -o LzFind.o
+gcc -c -I. -Ilzma_src/C -I/include -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2  lzma_src/C/LzmaDec.c -o LzmaDec.o
+gcc -I. -Ilzma_src/C -I/include -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2   -c -o sqlzma.o sqlzma.c
+gcc unsquashfs.o  sqlzma.o LzmaEnc.o LzFind.o LzmaDec.o -lz -lpthread -lm -o bat-unsquashfs-broadcom
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom"
+cd squashfs-broadcom40; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom40"
+make -C /home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/CPP/7zip/Compress/LZMA_Alone -f sqlzma.mk
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/CPP/7zip/Compress/LZMA_Alone"
+g++ -O2 -Wall -c LzmaAlone.cpp
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from LzmaAlone.cpp:18:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from LzmaAlone.cpp:18:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c LzmaBench.cpp
+g++ -O2 -Wall -c LzmaBenchCon.cpp
+g++ -O2 -Wall -c LzmaRam.cpp
+g++ -O2 -Wall -c ../LZMA/LZMADecoder.cpp
+g++ -O2 -Wall -c ../LZMA/LZMAEncoder.cpp
+../LZMA/LZMAEncoder.cpp: In member function ‘UInt32 NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32&)’:
+../LZMA/LZMAEncoder.cpp:1185:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1 << 9)) ||
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1186:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 3 >= lenMain && (backMain > (1 << 15)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1202:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+       if (_longestMatchLength >= lenMain && newDistance < backMain ||
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1205:62: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+           _longestMatchLength + 1 >= lenMain && lenMain >= 3 && ChangePair(newDistance, backMain))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp: In member function ‘LONG NCompress::NLZMA::CEncoder::CodeOneBlock(UInt64*, UInt64*, Int32*)’:
+../LZMA/LZMAEncoder.cpp:1350:12: warning: variable ‘len’ set but not used [-Wunused-but-set-variable]
+     UInt32 len, numDistancePairs;
+            ^~~
+g++ -O2 -Wall -c ../LZ/LZOutWindow.cpp
+g++ -O2 -Wall -c ../RangeCoder/RangeCoderBit.cpp
+g++ -O2 -Wall -c ../../Common/InBuffer.cpp
+g++ -O2 -Wall -c ../../Common/OutBuffer.cpp
+g++ -O2 -Wall -c ../../Common/FileStreams.cpp
+g++ -O2 -Wall -c ../../Common/StreamUtils.cpp
+g++ -O2 -Wall -c ../../../Common/C_FileIO.cpp
+g++ -O2 -Wall -c ../../../Common/CommandLineParser.cpp
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c ../../../Common/CRC.cpp
+g++ -O2 -Wall -c ../../../Common/IntToString.cpp
+g++ -O2 -Wall -c ../../../Common/MyString.cpp
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/MyString.cpp:11:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/MyString.cpp:11:0:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c ../../../Common/StringConvert.cpp
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c ../../../Common/StringToInt.cpp
+g++ -O2 -Wall -c ../../../Common/MyVector.cpp
+In file included from ../../../Common/MyVector.cpp:7:0:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+gcc -O2 -Wall -c ../../../../C/7zCrc.c
+gcc -O2 -Wall -c ../../../../C/Alloc.c
+gcc -O2 -Wall -c ../../../../C/Compress/Branch/BranchX86.c
+gcc -O2 -Wall -c ../../../../C/Compress/Lz/MatchFinder.c
+gcc -O2 -Wall -c ../../../../C/Compress/Lzma/LzmaDecode.c
+gcc -O2 -Wall -c LzmaRamDecode.c
+g++ -O2 -Wall -o lzma  LzmaAlone.o LzmaBench.o LzmaBenchCon.o LzmaRam.o LZMADecoder.o LZMAEncoder.o LZOutWindow.o RangeCoderBit.o InBuffer.o OutBuffer.o FileStreams.o StreamUtils.o C_FileIO.o CommandLineParser.o CRC.o IntToString.o MyString.o StringConvert.o StringToInt.o MyVector.o 7zCrc.o Alloc.o BranchX86.o MatchFinder.o LzmaDecode.o LzmaRamDecode.o  -lm 
+ln ../LZMA/LZMAEncoder.cpp LZMAEncoder_r.cc
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I../LZMA   -c -o LZMAEncoder_r.o LZMAEncoder_r.cc
+LZMAEncoder_r.cc: In member function ‘UInt32 NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32&)’:
+LZMAEncoder_r.cc:1185:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1 << 9)) ||
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1186:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 3 >= lenMain && (backMain > (1 << 15)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1202:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+       if (_longestMatchLength >= lenMain && newDistance < backMain ||
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1205:62: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+           _longestMatchLength + 1 >= lenMain && lenMain >= 3 && ChangePair(newDistance, backMain))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc: In member function ‘LONG NCompress::NLZMA::CEncoder::CodeOneBlock(UInt64*, UInt64*, Int32*)’:
+LZMAEncoder_r.cc:1350:12: warning: variable ‘len’ set but not used [-Wunused-but-set-variable]
+     UInt32 len, numDistancePairs;
+            ^~~
+ln ../../../../C/Alloc.c Alloc_r.c
+cc -c -I../../../../C   -c -o Alloc_r.o Alloc_r.c
+ln ../../Common/StreamUtils.cpp StreamUtils_r.cc
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I../../Common   -c -o StreamUtils_r.o StreamUtils_r.cc
+ln ../../../../C/Compress/Lz/MatchFinder.c MatchFinder_r.c
+cc -c -I../../../../C/Compress/Lz   -c -o MatchFinder_r.o MatchFinder_r.c
+ln ../RangeCoder/RangeCoderBit.cpp RangeCoderBit_r.cc
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I../RangeCoder   -c -o RangeCoderBit_r.o RangeCoderBit_r.cc
+ln ../../Common/OutBuffer.cpp OutBuffer_r.cc
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I../../Common   -c -o OutBuffer_r.o OutBuffer_r.cc
+ln ../../../../C/7zCrc.c 7zCrc_r.c
+cc -c -I../../../../C   -c -o 7zCrc_r.o 7zCrc_r.c
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0   -c -o comp.o comp.cc
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from comp.cc:20:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from comp.cc:20:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+comp.cc: In function ‘int LzmaCompress(Bytef*, uInt, Bytef*, uInt, sqlzma_opts*, uLong*)’:
+comp.cc:125:2: warning: narrowing conversion of ‘avail_in’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+  };
+  ^
+comp.cc:123:22: warning: narrowing conversion of ‘(avail_in >> 8)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+             ~~~~~~~~~^~~~
+comp.cc:123:37: warning: narrowing conversion of ‘(avail_in >> 16)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+                            ~~~~~~~~~^~~~~
+comp.cc:123:53: warning: narrowing conversion of ‘(avail_in >> 24)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+                                            ~~~~~~~~~^~~~~
+ar cr liblzma_r.a LZMAEncoder_r.o Alloc_r.o StreamUtils_r.o MatchFinder_r.o RangeCoderBit_r.o OutBuffer_r.o 7zCrc_r.o comp.o
+rm OutBuffer_r.cc StreamUtils_r.cc Alloc_r.c RangeCoderBit_r.cc MatchFinder_r.c LZMAEncoder_r.cc 7zCrc_r.c
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/CPP/7zip/Compress/LZMA_Alone"
+make -C /home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/C/Compress/Lzma -f sqlzma.mk
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/C/Compress/Lzma"
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32 -DNDEBUG  -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0   -c -o uncomp.o uncomp.c
+uncomp.c: In function ‘sqlzma_un’:
+uncomp.c:148:26: warning: field precision specifier ‘.*’ expects argument of type ‘int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+   fprintf(stderr, "%s: %.*s\n", __func__, sizeof(a), a);
+                          ^
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32 -DNDEBUG    -c -o LzmaDecode.o LzmaDecode.c
+ar cr libunlzma.a uncomp.o LzmaDecode.o
+ln uncomp.c uncomp_r.c
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32 -DNDEBUG  -D_REENTRANT -include pthread.h -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0   -c -o uncomp_r.o uncomp_r.c
+uncomp_r.c: In function ‘sqlzma_un’:
+uncomp_r.c:148:26: warning: field precision specifier ‘.*’ expects argument of type ‘int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+   fprintf(stderr, "%s: %.*s\n", __func__, sizeof(a), a);
+                          ^
+ln LzmaDecode.c LzmaDecode_r.c
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32 -DNDEBUG  -D_REENTRANT -include pthread.h   -c -o LzmaDecode_r.o LzmaDecode_r.c
+ar cr libunlzma_r.a uncomp_r.o LzmaDecode_r.o
+rm LzmaDecode_r.c uncomp_r.c
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/C/Compress/Lzma"
+make -C /home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0"
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0 -D_REENTRANT -DNDEBUG    -c -o unsquashfs.o unsquashfs.c
+unsquashfs.c: In function ‘initialise_threads’:
+unsquashfs.c:1917:16: warning: implicit declaration of function ‘get_nprocs’ [-Wimplicit-function-declaration]
+   processors = get_nprocs();
+                ^~~~~~~~~~
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0 -D_REENTRANT -DNDEBUG    -c -o unsquash-1.o unsquash-1.c
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0 -D_REENTRANT -DNDEBUG    -c -o unsquash-2.o unsquash-2.c
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0 -D_REENTRANT -DNDEBUG    -c -o unsquash-3.o unsquash-3.c
+unsquash-3.c: In function ‘read_fragment_table_3’:
+unsquash-3.c:39:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^~~~~~
+unsquash-3.c:29:5: note: declared here
+ int read_fragment_table_3()
+     ^~~~~~~~~~~~~~~~~~~~~
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0 -D_REENTRANT -DNDEBUG    -c -o unsquash-4.o unsquash-4.c
+unsquash-4.c: In function ‘read_fragment_table_4’:
+unsquash-4.c:41:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^~~~~~
+unsquash-4.c:31:5: note: declared here
+ int read_fragment_table_4()
+     ^~~~~~~~~~~~~~~~~~~~~
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -I/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0 -D_REENTRANT -DNDEBUG    -c -o swap.o swap.c
+cc -L/home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/CPP/7zip/Compress/LZMA_Alone -L/home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/C/Compress/Lzma unsquashfs.o unsquash-1.o unsquash-2.o unsquash-3.o unsquash-4.o swap.o -lpthread -lm -lunlzma_r -llzma_r -lstdc++ -lz -o bat-unsquashfs-broadcom40
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom40/squashfs_4.0"
+#make -C /home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/C/Compress/Lzma -f sqlzma.mk all
+#make -C /home/alberto/BAT/bat-extratools/squashfs-broadcom40/lzma457/CPP/7zip/Compress/LZMA_Alone -f sqlzma.mk all
+#make -C squashfs_4.0/squashfs-tools all
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-broadcom40"
+cd squashfs-ralink; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-ralink"
+make -C /home/alberto/BAT/bat-extratools/squashfs-ralink/lzma443/C/7zip/Compress/LZMA_C -f sqlzma.mk all
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-ralink/lzma443/C/7zip/Compress/LZMA_C"
+gcc  -c -O2 -Wall -pedantic -D _LZMA_PROB32  -DNDEBUG  LzmaTest.c
+gcc  -c -O2 -Wall -pedantic -D _LZMA_PROB32  -DNDEBUG  LzmaDecode.c
+gcc  -o lzmadec  LzmaTest.o LzmaDecode.o  
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32  -DNDEBUG  -I/home/alberto/BAT/bat-extratools/squashfs-ralink   -c -o uncomp.o uncomp.c
+uncomp.c: In function ‘sqlzma_un’:
+uncomp.c:147:26: warning: field precision specifier ‘.*’ expects argument of type ‘int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+   fprintf(stderr, "%s: %.*s\n", __func__, sizeof(a), a);
+                          ^
+ar cr libunlzma.a uncomp.o LzmaDecode.o
+ln uncomp.c uncomp_r.c
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32  -DNDEBUG  -D_REENTRANT -include pthread.h -I/home/alberto/BAT/bat-extratools/squashfs-ralink   -c -o uncomp_r.o uncomp_r.c
+uncomp_r.c: In function ‘sqlzma_un’:
+uncomp_r.c:147:26: warning: field precision specifier ‘.*’ expects argument of type ‘int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+   fprintf(stderr, "%s: %.*s\n", __func__, sizeof(a), a);
+                          ^
+ln LzmaDecode.c LzmaDecode_r.c
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32  -DNDEBUG  -D_REENTRANT -include pthread.h   -c -o LzmaDecode_r.o LzmaDecode_r.c
+ar cr libunlzma_r.a uncomp_r.o LzmaDecode_r.o
+rm LzmaDecode_r.c uncomp_r.c
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-ralink/lzma443/C/7zip/Compress/LZMA_C"
+make -C /home/alberto/BAT/bat-extratools/squashfs-ralink/lzma443/C/7zip/Compress/LZMA_Alone -f sqlzma.mk all
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-ralink/lzma443/C/7zip/Compress/LZMA_Alone"
+g++ -O2 -Wall -c -I ../../../ LzmaAlone.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from LzmaAlone.cpp:18:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:178:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:181:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from LzmaAlone.cpp:18:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+LzmaAlone.cpp: In function ‘int main2(int, const char**)’:
+LzmaAlone.cpp:371:76: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+     if (matchFinderCyclesDefined = parser[NKey::kMatchFinderCycles].ThereIs)
+                                                                            ^
+g++ -O2 -Wall -c -I ../../../ LzmaBench.cpp
+In file included from ../LZMA/LZMADecoder.h:6:0,
+                 from LzmaBench.cpp:12:
+LzmaBench.cpp: In member function ‘virtual ULONG CBenchmarkInStream::Release()’:
+../LZMA/../../../Common/MyCom.h:160:31: warning: deleting object of polymorphic class type ‘CBenchmarkInStream’ which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
+   return __m_RefCount; delete this; return 0; }
+                               ^
+../LZMA/../../../Common/MyCom.h:171:3: note: in expansion of macro ‘MY_ADDREF_RELEASE’
+   MY_ADDREF_RELEASE
+   ^~~~~~~~~~~~~~~~~
+LzmaBench.cpp:152:3: note: in expansion of macro ‘MY_UNKNOWN_IMP’
+   MY_UNKNOWN_IMP
+   ^~~~~~~~~~~~~~
+LzmaBench.cpp: In member function ‘virtual ULONG CCrcOutStream::Release()’:
+../LZMA/../../../Common/MyCom.h:160:31: warning: deleting object of polymorphic class type ‘CCrcOutStream’ which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
+   return __m_RefCount; delete this; return 0; }
+                               ^
+../LZMA/../../../Common/MyCom.h:171:3: note: in expansion of macro ‘MY_ADDREF_RELEASE’
+   MY_ADDREF_RELEASE
+   ^~~~~~~~~~~~~~~~~
+LzmaBench.cpp:220:3: note: in expansion of macro ‘MY_UNKNOWN_IMP’
+   MY_UNKNOWN_IMP
+   ^~~~~~~~~~~~~~
+LzmaBench.cpp: In member function ‘virtual ULONG CProgressInfo::Release()’:
+../LZMA/../../../Common/MyCom.h:160:31: warning: deleting object of polymorphic class type ‘CProgressInfo’ which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
+   return __m_RefCount; delete this; return 0; }
+                               ^
+../LZMA/../../../Common/MyCom.h:171:3: note: in expansion of macro ‘MY_ADDREF_RELEASE’
+   MY_ADDREF_RELEASE
+   ^~~~~~~~~~~~~~~~~
+LzmaBench.cpp:269:3: note: in expansion of macro ‘MY_UNKNOWN_IMP’
+   MY_UNKNOWN_IMP
+   ^~~~~~~~~~~~~~
+g++ -O2 -Wall -c -I ../../../ LzmaRam.cpp
+In file included from ../LZMA/LZMADecoder.h:6:0,
+                 from LzmaRam.cpp:5:
+LzmaRam.cpp: In member function ‘virtual ULONG CInStreamRam::Release()’:
+../LZMA/../../../Common/MyCom.h:160:31: warning: deleting object of polymorphic class type ‘CInStreamRam’ which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
+   return __m_RefCount; delete this; return 0; }
+                               ^
+../LZMA/../../../Common/MyCom.h:171:3: note: in expansion of macro ‘MY_ADDREF_RELEASE’
+   MY_ADDREF_RELEASE
+   ^~~~~~~~~~~~~~~~~
+LzmaRam.cpp:22:3: note: in expansion of macro ‘MY_UNKNOWN_IMP’
+   MY_UNKNOWN_IMP
+   ^~~~~~~~~~~~~~
+LzmaRam.cpp: In member function ‘virtual ULONG COutStreamRam::Release()’:
+../LZMA/../../../Common/MyCom.h:160:31: warning: deleting object of polymorphic class type ‘COutStreamRam’ which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
+   return __m_RefCount; delete this; return 0; }
+                               ^
+../LZMA/../../../Common/MyCom.h:171:3: note: in expansion of macro ‘MY_ADDREF_RELEASE’
+   MY_ADDREF_RELEASE
+   ^~~~~~~~~~~~~~~~~
+LzmaRam.cpp:66:3: note: in expansion of macro ‘MY_UNKNOWN_IMP’
+   MY_UNKNOWN_IMP
+   ^~~~~~~~~~~~~~
+gcc -O2 -Wall -c -I ../../../ LzmaRamDecode.c
+gcc -O2 -Wall -c -I ../../../ ../LZMA_C/LzmaDecode.c
+gcc -O2 -Wall -c -I ../../../ ../Branch/BranchX86.c
+g++ -O2 -Wall -c -I ../../../ ../LZMA/LZMADecoder.cpp
+../LZMA/LZMADecoder.cpp: In member function ‘virtual LONG NCompress::NLZMA::CDecoder::SetOutStreamSize(const UInt64*)’:
+../LZMA/LZMADecoder.cpp:312:42: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (_outSizeDefined = (outSize != NULL))
+                                          ^
+g++ -O2 -Wall -c -I ../../../ ../LZMA/LZMAEncoder.cpp
+../LZMA/LZMAEncoder.cpp: In member function ‘LONG NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32, UInt32&, UInt32&)’:
+../LZMA/LZMAEncoder.cpp:1207:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1 << 9)) ||
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1208:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 3 >= lenMain && (backMain > (1 << 15)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1222:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+       if (_longestMatchLength >= lenMain && newDistance < backMain || 
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1225:62: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+           _longestMatchLength + 1 >= lenMain && lenMain >= 3 && ChangePair(newDistance, backMain))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+g++ -O2 -Wall -c -I ../../../ ../LZ/LZInWindow.cpp
+g++ -O2 -Wall -c -I ../../../ ../LZ/LZOutWindow.cpp
+g++ -O2 -Wall -c -I ../../../ ../RangeCoder/RangeCoderBit.cpp
+g++ -O2 -Wall -c -I ../../../ ../../Common/InBuffer.cpp
+g++ -O2 -Wall -c -I ../../../ ../../Common/OutBuffer.cpp
+g++ -O2 -Wall -c -I ../../../ ../../Common/FileStreams.cpp
+g++ -O2 -Wall -c -I ../../../ ../../Common/StreamUtils.cpp
+g++ -O2 -Wall -c -I ../../../ ../../../Common/Alloc.cpp
+g++ -O2 -Wall -c -I ../../../ ../../../Common/C_FileIO.cpp
+g++ -O2 -Wall -c -I ../../../ ../../../Common/CommandLineParser.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:178:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:181:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c -I ../../../ ../../../Common/CRC.cpp
+g++ -O2 -Wall -c -I ../../../ ../../../Common/String.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/String.cpp:11:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:178:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:181:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/String.cpp:11:0:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c -I ../../../ ../../../Common/StringConvert.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:178:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:181:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c -I ../../../ ../../../Common/StringToInt.cpp
+g++ -O2 -Wall -c -I ../../../ ../../../Common/Vector.cpp
+In file included from ../../../Common/Vector.cpp:7:0:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:178:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:181:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -o lzma  LzmaAlone.o LzmaBench.o LzmaRam.o LzmaRamDecode.o LzmaDecode.o BranchX86.o LZMADecoder.o LZMAEncoder.o LZInWindow.o LZOutWindow.o RangeCoderBit.o InBuffer.o OutBuffer.o FileStreams.o StreamUtils.o Alloc.o C_FileIO.o CommandLineParser.o CRC.o String.o StringConvert.o StringToInt.o Vector.o  -lm
+ln ../LZMA/LZMAEncoder.cpp LZMAEncoder_r.cc
+g++ -O2 -Wall -c -I ../../../ -D_REENTRANT -include pthread.h -DNDEBUG  -I../LZMA   -c -o LZMAEncoder_r.o LZMAEncoder_r.cc
+LZMAEncoder_r.cc: In member function ‘LONG NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32, UInt32&, UInt32&)’:
+LZMAEncoder_r.cc:1207:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1 << 9)) ||
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1208:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 3 >= lenMain && (backMain > (1 << 15)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1222:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+       if (_longestMatchLength >= lenMain && newDistance < backMain || 
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1225:62: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+           _longestMatchLength + 1 >= lenMain && lenMain >= 3 && ChangePair(newDistance, backMain))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ln ../../../Common/Alloc.cpp Alloc_r.cc
+g++ -O2 -Wall -c -I ../../../ -D_REENTRANT -include pthread.h -DNDEBUG  -I../../../Common   -c -o Alloc_r.o Alloc_r.cc
+ln ../LZ/LZInWindow.cpp LZInWindow_r.cc
+g++ -O2 -Wall -c -I ../../../ -D_REENTRANT -include pthread.h -DNDEBUG  -I../LZ   -c -o LZInWindow_r.o LZInWindow_r.cc
+ln ../../../Common/CRC.cpp CRC_r.cc
+g++ -O2 -Wall -c -I ../../../ -D_REENTRANT -include pthread.h -DNDEBUG  -I../../../Common   -c -o CRC_r.o CRC_r.cc
+ln ../../Common/StreamUtils.cpp StreamUtils_r.cc
+g++ -O2 -Wall -c -I ../../../ -D_REENTRANT -include pthread.h -DNDEBUG  -I../../Common   -c -o StreamUtils_r.o StreamUtils_r.cc
+ln ../../Common/OutBuffer.cpp OutBuffer_r.cc
+g++ -O2 -Wall -c -I ../../../ -D_REENTRANT -include pthread.h -DNDEBUG  -I../../Common   -c -o OutBuffer_r.o OutBuffer_r.cc
+ln ../RangeCoder/RangeCoderBit.cpp RangeCoderBit_r.cc
+g++ -O2 -Wall -c -I ../../../ -D_REENTRANT -include pthread.h -DNDEBUG  -I../RangeCoder   -c -o RangeCoderBit_r.o RangeCoderBit_r.cc
+g++ -O2 -Wall -c -I ../../../ -D_REENTRANT -include pthread.h -DNDEBUG  -I/home/alberto/BAT/bat-extratools/squashfs-ralink   -c -o comp.o comp.cc
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from comp.cc:20:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:178:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:181:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from comp.cc:20:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+comp.cc: In function ‘int LzmaCompress(Bytef*, uInt, Bytef*, uInt, uLong*)’:
+comp.cc:123:2: warning: narrowing conversion of ‘avail_in’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+  };
+  ^
+comp.cc:121:22: warning: narrowing conversion of ‘(avail_in >> 8)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+             ~~~~~~~~~^~~~
+comp.cc:121:37: warning: narrowing conversion of ‘(avail_in >> 16)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+                            ~~~~~~~~~^~~~~
+comp.cc:121:53: warning: narrowing conversion of ‘(avail_in >> 24)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+                                            ~~~~~~~~~^~~~~
+ar cr liblzma_r.a LZMAEncoder_r.o Alloc_r.o LZInWindow_r.o CRC_r.o StreamUtils_r.o OutBuffer_r.o RangeCoderBit_r.o comp.o
+rm LZInWindow_r.cc CRC_r.cc Alloc_r.cc OutBuffer_r.cc StreamUtils_r.cc RangeCoderBit_r.cc LZMAEncoder_r.cc
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-ralink/lzma443/C/7zip/Compress/LZMA_Alone"
+make -C /home/alberto/BAT/bat-extratools/squashfs-ralink/squashfs3.2-r2/squashfs-tools all
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-ralink/squashfs3.2-r2/squashfs-tools"
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -O2 -I/home/alberto/BAT/bat-extratools/squashfs-ralink -D_REENTRANT -DNDEBUG  -U_REENTRANT   -c -o unsquashfs.o unsquashfs.c
+cc unsquashfs.o -L/home/alberto/BAT/bat-extratools/squashfs-ralink/lzma443/C/7zip/Compress/LZMA_Alone -L/home/alberto/BAT/bat-extratools/squashfs-ralink/lzma443/C/7zip/Compress/LZMA_C -lunlzma -lz -o bat-unsquashfs-ralink
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-ralink/squashfs3.2-r2/squashfs-tools"
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-ralink"
+cd squashfs-realtek/squashfs-tools; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-realtek/squashfs-tools"
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquashfs.o unsquashfs.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquash-1.o unsquash-1.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquash-2.o unsquash-2.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquash-3.o unsquash-3.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquash-4.o unsquash-4.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o swap.o swap.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o compressor.o compressor.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o fake_gzip_lzma.o fake_gzip_lzma.c
+fake_gzip_lzma.c: In function ‘lzma_uncompress’:
+fake_gzip_lzma.c:53:100: warning: pointer targets in passing argument 10 of ‘LzmaDecode’ differ in signedness [-Wpointer-sign]
+  res = LzmaDecode(lzma_workspace, sizeof(lzma_workspace), lc, lp, pb, src, size, dest, block_size, &uncompressed_size);
+                                                                                                    ^
+In file included from fake_gzip_lzma.c:26:0:
+LzmaDecode.c:435:5: note: expected ‘unsigned int *’ but argument is of type ‘int *’
+ int LzmaDecode(
+     ^~~~~~~~~~
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o read_xattrs.o read_xattrs.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquashfs_xattr.o unsquashfs_xattr.c
+cc   unsquashfs.o unsquash-1.o unsquash-2.o unsquash-3.o unsquash-4.o swap.o compressor.o fake_gzip_lzma.o read_xattrs.o unsquashfs_xattr.o -lpthread -lm -lz -o bat-unsquashfs-realtek
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-realtek/squashfs-tools"
+cd squashfs-atheros; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-atheros"
+make -C /home/alberto/BAT/bat-extratools/squashfs-atheros//C/Compress/Lzma -f sqlzma.mk all
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-atheros/C/Compress/Lzma"
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32 -DNDEBUG  -I/home/alberto/BAT/bat-extratools/squashfs-atheros   -c -o uncomp.o uncomp.c
+uncomp.c: In function ‘sqlzma_un’:
+uncomp.c:148:26: warning: field precision specifier ‘.*’ expects argument of type ‘int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+   fprintf(stderr, "%s: %.*s\n", __func__, sizeof(a), a);
+                          ^
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32 -DNDEBUG    -c -o LzmaDecode.o LzmaDecode.c
+ar cr libunlzma.a uncomp.o LzmaDecode.o
+ln uncomp.c uncomp_r.c
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32 -DNDEBUG  -D_REENTRANT -include pthread.h -I/home/alberto/BAT/bat-extratools/squashfs-atheros   -c -o uncomp_r.o uncomp_r.c
+uncomp_r.c: In function ‘sqlzma_un’:
+uncomp_r.c:148:26: warning: field precision specifier ‘.*’ expects argument of type ‘int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+   fprintf(stderr, "%s: %.*s\n", __func__, sizeof(a), a);
+                          ^
+ln LzmaDecode.c LzmaDecode_r.c
+cc -c -O2 -Wall -pedantic -D _LZMA_PROB32 -DNDEBUG  -D_REENTRANT -include pthread.h   -c -o LzmaDecode_r.o LzmaDecode_r.c
+ar cr libunlzma_r.a uncomp_r.o LzmaDecode_r.o
+rm LzmaDecode_r.c uncomp_r.c
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-atheros/C/Compress/Lzma"
+make -C /home/alberto/BAT/bat-extratools/squashfs-atheros//CPP/7zip/Compress/LZMA_Alone -f sqlzma.mk all
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-atheros/CPP/7zip/Compress/LZMA_Alone"
+g++ -O2 -Wall -c LzmaAlone.cpp
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from LzmaAlone.cpp:18:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from LzmaAlone.cpp:18:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c LzmaBench.cpp
+g++ -O2 -Wall -c LzmaBenchCon.cpp
+g++ -O2 -Wall -c LzmaRam.cpp
+g++ -O2 -Wall -c ../LZMA/LZMADecoder.cpp
+g++ -O2 -Wall -c ../LZMA/LZMAEncoder.cpp
+../LZMA/LZMAEncoder.cpp: In member function ‘UInt32 NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32&)’:
+../LZMA/LZMAEncoder.cpp:1185:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1 << 9)) ||
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1186:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 3 >= lenMain && (backMain > (1 << 15)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1202:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+       if (_longestMatchLength >= lenMain && newDistance < backMain || 
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1205:62: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+           _longestMatchLength + 1 >= lenMain && lenMain >= 3 && ChangePair(newDistance, backMain))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp: In member function ‘LONG NCompress::NLZMA::CEncoder::CodeOneBlock(UInt64*, UInt64*, Int32*)’:
+../LZMA/LZMAEncoder.cpp:1350:12: warning: variable ‘len’ set but not used [-Wunused-but-set-variable]
+     UInt32 len, numDistancePairs;
+            ^~~
+g++ -O2 -Wall -c ../LZ/LZOutWindow.cpp
+g++ -O2 -Wall -c ../RangeCoder/RangeCoderBit.cpp
+g++ -O2 -Wall -c ../../Common/InBuffer.cpp
+g++ -O2 -Wall -c ../../Common/OutBuffer.cpp
+g++ -O2 -Wall -c ../../Common/FileStreams.cpp
+g++ -O2 -Wall -c ../../Common/StreamUtils.cpp
+g++ -O2 -Wall -c ../../../Common/C_FileIO.cpp
+g++ -O2 -Wall -c ../../../Common/CommandLineParser.cpp
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c ../../../Common/CRC.cpp
+g++ -O2 -Wall -c ../../../Common/IntToString.cpp
+g++ -O2 -Wall -c ../../../Common/MyString.cpp
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/MyString.cpp:11:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/MyString.cpp:11:0:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c ../../../Common/StringConvert.cpp
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O2 -Wall -c ../../../Common/StringToInt.cpp
+g++ -O2 -Wall -c ../../../Common/MyVector.cpp
+In file included from ../../../Common/MyVector.cpp:7:0:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+gcc -O2 -Wall -c ../../../../C/7zCrc.c
+gcc -O2 -Wall -c ../../../../C/Alloc.c
+gcc -O2 -Wall -c ../../../../C/Compress/Branch/BranchX86.c
+gcc -O2 -Wall -c ../../../../C/Compress/Lz/MatchFinder.c
+gcc -O2 -Wall -c ../../../../C/Compress/Lzma/LzmaDecode.c
+gcc -O2 -Wall -c LzmaRamDecode.c
+g++ -O2 -Wall -o lzma  LzmaAlone.o LzmaBench.o LzmaBenchCon.o LzmaRam.o LZMADecoder.o LZMAEncoder.o LZOutWindow.o RangeCoderBit.o InBuffer.o OutBuffer.o FileStreams.o StreamUtils.o C_FileIO.o CommandLineParser.o CRC.o IntToString.o MyString.o StringConvert.o StringToInt.o MyVector.o 7zCrc.o Alloc.o BranchX86.o MatchFinder.o LzmaDecode.o LzmaRamDecode.o  -lm 
+ln ../LZMA/LZMAEncoder.cpp LZMAEncoder_r.cc
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I../LZMA   -c -o LZMAEncoder_r.o LZMAEncoder_r.cc
+LZMAEncoder_r.cc: In member function ‘UInt32 NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32&)’:
+LZMAEncoder_r.cc:1185:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1 << 9)) ||
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1186:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 3 >= lenMain && (backMain > (1 << 15)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1202:42: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+       if (_longestMatchLength >= lenMain && newDistance < backMain || 
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc:1205:62: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+           _longestMatchLength + 1 >= lenMain && lenMain >= 3 && ChangePair(newDistance, backMain))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+LZMAEncoder_r.cc: In member function ‘LONG NCompress::NLZMA::CEncoder::CodeOneBlock(UInt64*, UInt64*, Int32*)’:
+LZMAEncoder_r.cc:1350:12: warning: variable ‘len’ set but not used [-Wunused-but-set-variable]
+     UInt32 len, numDistancePairs;
+            ^~~
+ln ../../../../C/Alloc.c Alloc_r.c
+cc -c -I../../../../C   -c -o Alloc_r.o Alloc_r.c
+ln ../../Common/StreamUtils.cpp StreamUtils_r.cc
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I../../Common   -c -o StreamUtils_r.o StreamUtils_r.cc
+ln ../../../../C/Compress/Lz/MatchFinder.c MatchFinder_r.c
+cc -c -I../../../../C/Compress/Lz   -c -o MatchFinder_r.o MatchFinder_r.c
+ln ../RangeCoder/RangeCoderBit.cpp RangeCoderBit_r.cc
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I../RangeCoder   -c -o RangeCoderBit_r.o RangeCoderBit_r.cc
+ln ../../Common/OutBuffer.cpp OutBuffer_r.cc
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I../../Common   -c -o OutBuffer_r.o OutBuffer_r.cc
+ln ../../../../C/7zCrc.c 7zCrc_r.c
+cc -c -I../../../../C   -c -o 7zCrc_r.o 7zCrc_r.c
+g++ -O2 -Wall -c -D_REENTRANT -include pthread.h -DNDEBUG  -I/home/alberto/BAT/bat-extratools/squashfs-atheros   -c -o comp.o comp.cc
+In file included from ../../../Common/MyString.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from comp.cc:20:
+../../../Common/MyVector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/MyVector.h:204:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/MyVector.h:207:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from comp.cc:20:
+../../../Common/MyString.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/MyString.h:422:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/MyString.h:425:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+comp.cc: In function ‘int LzmaCompress(Bytef*, uInt, Bytef*, uInt, sqlzma_opts*, uLong*)’:
+comp.cc:125:2: warning: narrowing conversion of ‘avail_in’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+  };
+  ^
+comp.cc:123:22: warning: narrowing conversion of ‘(avail_in >> 8)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+             ~~~~~~~~~^~~~
+comp.cc:123:37: warning: narrowing conversion of ‘(avail_in >> 16)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+                            ~~~~~~~~~^~~~~
+comp.cc:123:53: warning: narrowing conversion of ‘(avail_in >> 24)’ from ‘uInt {aka unsigned int}’ to ‘Byte {aka unsigned char}’ inside { } [-Wnarrowing]
+   avail_in, avail_in >> 8, avail_in >> 16, avail_in >> 24,
+                                            ~~~~~~~~~^~~~~
+ar cr liblzma_r.a LZMAEncoder_r.o Alloc_r.o StreamUtils_r.o MatchFinder_r.o RangeCoderBit_r.o OutBuffer_r.o 7zCrc_r.o comp.o
+rm OutBuffer_r.cc StreamUtils_r.cc Alloc_r.c RangeCoderBit_r.cc MatchFinder_r.c LZMAEncoder_r.cc 7zCrc_r.c
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-atheros/CPP/7zip/Compress/LZMA_Alone"
+make -C /home/alberto/BAT/bat-extratools/squashfs-atheros/squashfs3.3/squashfs-tools all
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-atheros/squashfs3.3/squashfs-tools"
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -I/home/alberto/BAT/bat-extratools/squashfs-atheros -D_REENTRANT -DNDEBUG  -U_REENTRANT   -c -o unsquashfs.o unsquashfs.c
+cc unsquashfs.o -L/home/alberto/BAT/bat-extratools/squashfs-atheros//CPP/7zip/Compress/LZMA_Alone -L/home/alberto/BAT/bat-extratools/squashfs-atheros//C/Compress/Lzma -lm -lunlzma -lz -o bat-unsquashfs-atheros
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-atheros/squashfs3.3/squashfs-tools"
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-atheros"
+cd squashfs-atheros2; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-atheros2"
+gcc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -O2    -c -o unsquashfs.o unsquashfs.c
+make -C ./lzma/C/7zip/Compress/LZMA_Lib
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-atheros2/lzma/C/7zip/Compress/LZMA_Lib"
+g++ -O3 -Wall -c  -I ../../../ ZLib.cpp
+g++ -O3 -Wall -c  -I ../../../ ../LZMA/LZMADecoder.cpp
+../LZMA/LZMADecoder.cpp: In member function ‘virtual LONG NCompress::NLZMA::CDecoder::SetOutStreamSize(const UInt64*)’:
+../LZMA/LZMADecoder.cpp:317:42: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (_outSizeDefined = (outSize != NULL))
+                                          ^
+g++ -O3 -Wall -c  -I ../../../ ../LZMA/LZMAEncoder.cpp
+../LZMA/LZMAEncoder.cpp: In member function ‘LONG NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32, UInt32&, UInt32&)’:
+../LZMA/LZMAEncoder.cpp:1139:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1<<12)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1154:44: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         _longestMatchLength == lenMain + 1 && 
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+           !ChangePair(backMain, _matchDistances[_longestMatchLength]) ||
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1157:60: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         _longestMatchLength + 1 >= lenMain && lenMain >= 3 &&
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+           ChangePair(_matchDistances[lenMain - 1], backMain)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../LZ/LZInWindow.cpp
+g++ -O3 -Wall -c  -I ../../../ ../LZ/LZOutWindow.cpp
+g++ -O3 -Wall -c  -I ../../../ ../RangeCoder/RangeCoderBit.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/InBuffer.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/OutBuffer.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/FileStreams.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/Alloc.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/C_FileIO.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/CommandLineParser.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/CRC.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/StreamUtils.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/String.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/String.cpp:11:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/String.cpp:11:0:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/StringConvert.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/StringToInt.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/Vector.cpp
+In file included from ../../../Common/Vector.cpp:7:0:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+ar r liblzma.a ZLib.o LZMADecoder.o LZMAEncoder.o LZInWindow.o LZOutWindow.o RangeCoderBit.o InBuffer.o OutBuffer.o FileStreams.o Alloc.o C_FileIO.o CommandLineParser.o CRC.o StreamUtils.o String.o StringConvert.o StringToInt.o Vector.o 
+ar: creazione di liblzma.a
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-atheros2/lzma/C/7zip/Compress/LZMA_Lib"
+g++ unsquashfs.o -L./lzma/C/7zip/Compress/LZMA_Lib -llzma -o bat-unsquashfs-atheros2
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-atheros2"
+cd squashfs-atheros4.0/squashfs-tools; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-atheros4.0/squashfs-tools"
+make -C ../lzmasdk/C/LzmaUtil -f makefile.gcc
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-atheros4.0/lzmasdk/C/LzmaUtil"
+gcc -c -O2 -Wall LzmaUtil.c
+LzmaUtil.c: In function ‘Decode2’:
+LzmaUtil.c:95:39: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+       if (res != SZ_OK || thereIsSize && unpackSize == 0)
+                           ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+gcc -c -O2 -Wall ../Alloc.c
+gcc -c -O2 -Wall ../LzFind.c
+gcc -c -O2 -Wall ../LzmaDec.c
+gcc -c -O2 -Wall ../LzmaEnc.c
+../LzmaEnc.c: In function ‘LzmaEnc_Alloc’:
+../LzmaEnc.c:1922:8: warning: variable ‘btMode’ set but not used [-Wunused-but-set-variable]
+   Bool btMode;
+        ^~~~~~
+gcc -c -O2 -Wall ../LzmaLib.c
+gcc -c -O2 -Wall ../7zFile.c
+gcc -c -O2 -Wall ../7zStream.c
+rm -f liblzma.a
+ar rcu liblzma.a Alloc.o LzFind.o LzmaDec.o LzmaEnc.o LzmaLib.o 7zFile.o 7zStream.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib liblzma.a
+gcc -o lzma  LzmaUtil.o liblzma.a
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-atheros4.0/lzmasdk/C/LzmaUtil"
+cc -I.  -I../lzmasdk/C -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -DUSE_LZMA   -c -o unsquashfs.o unsquashfs.c
+unsquashfs.c: In function ‘initialise_threads’:
+unsquashfs.c:1816:16: warning: implicit declaration of function ‘get_nprocs’ [-Wimplicit-function-declaration]
+   processors = get_nprocs();
+                ^~~~~~~~~~
+cc -I.  -I../lzmasdk/C -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -DUSE_LZMA   -c -o unsquash-1.o unsquash-1.c
+cc -I.  -I../lzmasdk/C -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -DUSE_LZMA   -c -o unsquash-2.o unsquash-2.c
+cc -I.  -I../lzmasdk/C -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -DUSE_LZMA   -c -o unsquash-3.o unsquash-3.c
+unsquash-3.c: In function ‘read_fragment_table_3’:
+unsquash-3.c:39:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^~~~~~
+unsquash-3.c:29:5: note: declared here
+ int read_fragment_table_3()
+     ^~~~~~~~~~~~~~~~~~~~~
+cc -I.  -I../lzmasdk/C -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -DUSE_LZMA   -c -o unsquash-4.o unsquash-4.c
+unsquash-4.c: In function ‘read_fragment_table_4’:
+unsquash-4.c:41:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^~~~~~
+unsquash-4.c:31:5: note: declared here
+ int read_fragment_table_4()
+     ^~~~~~~~~~~~~~~~~~~~~
+cc -I.  -I../lzmasdk/C -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -DUSE_LZMA   -c -o swap.o swap.c
+cc -I.  -I../lzmasdk/C -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -O2 -DUSE_LZMA   -c -o uncompress.o uncompress.c
+cc unsquashfs.o unsquash-1.o unsquash-2.o unsquash-3.o unsquash-4.o swap.o uncompress.o -lz -lpthread -lm -L../lzmasdk/C/LzmaUtil -llzma -o bat-unsquashfs-atheros40
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-atheros4.0/squashfs-tools"
+cd squashfs-openwrt; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-openwrt"
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -O2   -c -o unsquashfs.o unsquashfs.c
+make -C lzma-4.32/C/7zip/Compress/LZMA_Lib
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-openwrt/lzma-4.32/C/7zip/Compress/LZMA_Lib"
+g++ -O3 -Wall -c  -I ../../../ ZLib.cpp
+g++ -O3 -Wall -c  -I ../../../ ../LZMA/LZMADecoder.cpp
+../LZMA/LZMADecoder.cpp: In member function ‘virtual LONG NCompress::NLZMA::CDecoder::SetOutStreamSize(const UInt64*)’:
+../LZMA/LZMADecoder.cpp:317:42: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (_outSizeDefined = (outSize != NULL))
+                                          ^
+g++ -O3 -Wall -c  -I ../../../ ../LZMA/LZMAEncoder.cpp
+../LZMA/LZMAEncoder.cpp: In member function ‘LONG NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32, UInt32&, UInt32&)’:
+../LZMA/LZMAEncoder.cpp:1139:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1<<12)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1154:44: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         _longestMatchLength == lenMain + 1 &&
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+           !ChangePair(backMain, _matchDistances[_longestMatchLength]) ||
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1157:60: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         _longestMatchLength + 1 >= lenMain && lenMain >= 3 &&
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+           ChangePair(_matchDistances[lenMain - 1], backMain)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../LZ/LZInWindow.cpp
+g++ -O3 -Wall -c  -I ../../../ ../LZ/LZOutWindow.cpp
+g++ -O3 -Wall -c  -I ../../../ ../RangeCoder/RangeCoderBit.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/InBuffer.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/OutBuffer.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/FileStreams.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/Alloc.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/C_FileIO.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/CommandLineParser.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/CRC.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/StreamUtils.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/String.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/String.cpp:11:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/String.cpp:11:0:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/StringConvert.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/StringToInt.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/Vector.cpp
+In file included from ../../../Common/Vector.cpp:7:0:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+ar r liblzma.a ZLib.o LZMADecoder.o LZMAEncoder.o LZInWindow.o LZOutWindow.o RangeCoderBit.o InBuffer.o OutBuffer.o FileStreams.o Alloc.o C_FileIO.o CommandLineParser.o CRC.o StreamUtils.o String.o StringConvert.o StringToInt.o Vector.o 
+ar: creazione di liblzma.a
+ranlib liblzma.a
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-openwrt/lzma-4.32/C/7zip/Compress/LZMA_Lib"
+g++ unsquashfs.o -Llzma-4.32/C/7zip/Compress/LZMA_Lib -llzma -o bat-unsquashfs-openwrt
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-openwrt"
+cd squashfs-ddwrt; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-ddwrt"
+cc -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -O2 -D_LZMA_PARAMS    -c -o unsquashfs.o unsquashfs.c
+#cc unsquashfs.o -lz -o bat-unsquashfs-ddwrt
+make -C ./lzma/C/7zip/Compress/LZMA_Lib
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs-ddwrt/lzma/C/7zip/Compress/LZMA_Lib"
+g++ -O3 -Wall -c  -I ../../../ ZLib.cpp
+ZLib.cpp: In function ‘void* brute(void*)’:
+ZLib.cpp:334:6: warning: unused variable ‘ret’ [-Wunused-variable]
+  int ret =
+      ^~~
+ZLib.cpp: In function ‘int compress2_lzma(Bytef*, uLongf*, const Bytef*, uLong, int, int, int, int, int)’:
+ZLib.cpp:405:39: warning: format ‘%d’ expects argument of type ‘int’, but argument 7 has type ‘uLongf {aka long unsigned int}’ [-Wformat=]
+   pbsave, lcsave, lpsave, fb, test1len);
+                                       ^
+ZLib.cpp:360:12: warning: unused variable ‘cpuset’ [-Wunused-variable]
+  cpu_set_t cpuset[4];
+            ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../LZMA/LZMADecoder.cpp
+../LZMA/LZMADecoder.cpp: In member function ‘virtual LONG NCompress::NLZMA::CDecoder::SetOutStreamSize(const UInt64*)’:
+../LZMA/LZMADecoder.cpp:317:42: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if (_outSizeDefined = (outSize != NULL))
+                                          ^
+g++ -O3 -Wall -c  -I ../../../ ../LZMA/LZMAEncoder.cpp
+../LZMA/LZMAEncoder.cpp: In member function ‘LONG NCompress::NLZMA::CEncoder::GetOptimumFast(UInt32, UInt32&, UInt32&)’:
+../LZMA/LZMAEncoder.cpp:1141:45: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         repLens[repMaxIndex] + 2 >= lenMain && (backMain > (1<<12)))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1156:44: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         _longestMatchLength == lenMain + 1 && 
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+           !ChangePair(backMain, _matchDistances[_longestMatchLength]) ||
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../LZMA/LZMAEncoder.cpp:1159:60: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+         _longestMatchLength + 1 >= lenMain && lenMain >= 3 &&
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+           ChangePair(_matchDistances[lenMain - 1], backMain)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../LZ/LZInWindow.cpp
+g++ -O3 -Wall -c  -I ../../../ ../LZ/LZOutWindow.cpp
+g++ -O3 -Wall -c  -I ../../../ ../RangeCoder/RangeCoderBit.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/InBuffer.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/OutBuffer.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/FileStreams.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/Alloc.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/C_FileIO.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/CommandLineParser.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/CommandLineParser.h:6,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/CommandLineParser.h:6:0,
+                 from ../../../Common/CommandLineParser.cpp:5:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/CRC.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../Common/StreamUtils.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/String.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/String.cpp:11:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/String.cpp:11:0:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/StringConvert.cpp
+In file included from ../../../Common/String.h:9:0,
+                 from ../../../Common/StringConvert.h:7,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+In file included from ../../../Common/StringConvert.h:7:0,
+                 from ../../../Common/StringConvert.cpp:5:
+../../../Common/String.h: In member function ‘int CStringBase<T>::FindOneOf(const CStringBase<T>&) const’:
+../../../Common/String.h:417:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < _length; i++)
+     ^~~
+../../../Common/String.h:420:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/StringToInt.cpp
+g++ -O3 -Wall -c  -I ../../../ ../../../Common/Vector.cpp
+In file included from ../../../Common/Vector.cpp:7:0:
+../../../Common/Vector.h: In member function ‘int CObjectVector<T>::Find(const T&) const’:
+../../../Common/Vector.h:161:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for(int i = 0; i < Size(); i++)
+     ^~~
+../../../Common/Vector.h:164:7: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘for’
+       return -1;
+       ^~~~~~
+ar r liblzma.a ZLib.o LZMADecoder.o LZMAEncoder.o LZInWindow.o LZOutWindow.o RangeCoderBit.o InBuffer.o OutBuffer.o FileStreams.o Alloc.o C_FileIO.o CommandLineParser.o CRC.o StreamUtils.o String.o StringConvert.o StringToInt.o Vector.o 
+ar: creazione di liblzma.a
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-ddwrt/lzma/C/7zip/Compress/LZMA_Lib"
+g++ unsquashfs.o -L./lzma/C/7zip/Compress/LZMA_Lib -llzma -lpthread -o bat-unsquashfs-ddwrt
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs-ddwrt"
+cd squashfs4.3/squashfs-tools; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/squashfs4.3/squashfs-tools"
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquashfs.o unsquashfs.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquash-1.o unsquash-1.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquash-2.o unsquash-2.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquash-3.o unsquash-3.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquash-4.o unsquash-4.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o swap.o swap.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o compressor.o compressor.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquashfs_info.o unsquashfs_info.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o gzip_wrapper.o gzip_wrapper.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o read_xattrs.o read_xattrs.c
+cc -O2  -I. -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"gzip\" -Wall -DGZIP_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -c -o unsquashfs_xattr.o unsquashfs_xattr.c
+cc   unsquashfs.o unsquash-1.o unsquash-2.o unsquash-3.o unsquash-4.o swap.o compressor.o unsquashfs_info.o gzip_wrapper.o read_xattrs.o unsquashfs_xattr.o -lpthread -lm -lz -o bat-unsquashfs42
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/squashfs4.3/squashfs-tools"
+cd cramfs; ./configure --without-ncurses; make
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+configure: Default --exec-prefix detected.
+configure:   --bindir defaults to /bin
+configure:   --sbindir defaults to /sbin
+configure:   --libdir defaults to /lib
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... gcc3
+checking for gcc option to accept ISO C99... none needed
+checking for gcc option to accept ISO Standard C... (cached) none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for an ANSI C-conforming const... yes
+checking for working volatile... yes
+checking whether byte ordering is bigendian... no
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking whether to build gtk-doc documentation... no
+checking for gtkdoc-check... no
+checking for xsltproc... no
+checking for perl... /usr/bin/perl
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for linux/compiler.h... no
+checking for linux/blkpg.h... yes
+checking for linux/major.h... yes
+checking err.h usability... yes
+checking err.h presence... yes
+checking for err.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking linux/fd.h usability... yes
+checking linux/fd.h presence... yes
+checking for linux/fd.h... yes
+checking linux/tiocl.h usability... yes
+checking linux/tiocl.h presence... yes
+checking for linux/tiocl.h... yes
+checking linux/version.h usability... yes
+checking linux/version.h presence... yes
+checking for linux/version.h... yes
+checking linux/falloc.h usability... yes
+checking linux/falloc.h presence... yes
+checking for linux/falloc.h... yes
+checking linux/cdrom.h usability... yes
+checking linux/cdrom.h presence... yes
+checking for linux/cdrom.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for stdint.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking paths.h usability... yes
+checking paths.h presence... yes
+checking for paths.h... yes
+checking pty.h usability... yes
+checking pty.h presence... yes
+checking for pty.h... yes
+checking mntent.h usability... yes
+checking mntent.h presence... yes
+checking for mntent.h... yes
+checking net/if.h usability... yes
+checking net/if.h presence... yes
+checking for net/if.h... yes
+checking net/if_dl.h usability... no
+checking net/if_dl.h presence... no
+checking for net/if_dl.h... no
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking rpcsvc/nfs_prot.h usability... yes
+checking rpcsvc/nfs_prot.h presence... yes
+checking for rpcsvc/nfs_prot.h... yes
+checking for stdlib.h... (cached) yes
+checking sys/disk.h usability... no
+checking sys/disk.h presence... no
+checking for sys/disk.h... no
+checking sys/disklabel.h usability... no
+checking sys/disklabel.h presence... no
+checking for sys/disklabel.h... no
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/ioccom.h usability... no
+checking sys/ioccom.h presence... no
+checking for sys/ioccom.h... no
+checking sys/io.h usability... yes
+checking sys/io.h presence... yes
+checking for sys/io.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/mkdev.h usability... no
+checking sys/mkdev.h presence... no
+checking for sys/mkdev.h... no
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/queue.h usability... yes
+checking sys/queue.h presence... yes
+checking for sys/queue.h... yes
+checking sys/sockio.h usability... no
+checking sys/sockio.h presence... no
+checking for sys/sockio.h... no
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/syscall.h usability... yes
+checking sys/syscall.h presence... yes
+checking for sys/syscall.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking for sys/ioctl.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking sys/user.h usability... yes
+checking sys/user.h presence... yes
+checking for sys/user.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking for unistd.h... (cached) yes
+checking linux/raw.h usability... yes
+checking linux/raw.h presence... yes
+checking for linux/raw.h... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking whether _NL_TIME_WEEK_1STDAY is declared... yes
+checking whether llseek is declared... no
+checking whether lseek64 is declared... yes
+checking for inet_aton... yes
+checking for futimens... yes
+checking for fstat64... yes
+checking for fsync... yes
+checking for getdomainname... yes
+checking for get_current_dir_name... yes
+checking for usleep... yes
+checking for nanosleep... yes
+checking for personality... yes
+checking for updwtmp... yes
+checking for jrand48... yes
+checking for lchown... yes
+checking for llseek... yes
+checking for lseek64... yes
+checking for strtoull... yes
+checking for sysconf... yes
+checking for getdtablesize... yes
+checking for getexecname... no
+checking for getrlimit... yes
+checking for srandom... yes
+checking for setresgid... yes
+checking for setresuid... yes
+checking for strndup... yes
+checking for strnlen... yes
+checking for strnchr... no
+checking for inotify_init... yes
+checking for prctl... yes
+checking for posix_fadvise... yes
+checking for getmntinfo... no
+checking for __secure_getenv... no
+checking for rpmatch... yes
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking for openat... yes
+checking for fstatat... yes
+checking for unlinkat... yes
+checking for struct sockaddr.sa_len... no
+checking for library containing gethostbyname... none required
+checking for library containing socket... none required
+checking for dirfd... yes
+checking whether program_invocation_short_name is defined... yes
+checking whether __progname is defined... yes
+checking whether the target supports thread-local storage... yes
+checking for UUID... no
+checking for uuid_is_null in -luuid... no
+configure: WARNING: uuid library is not found; mkswap(8) will not generate UUIDs
+checking for openpty in -lutil... yes
+checking for tgetnum in -ltermcap... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for ld used by GCC... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking whether NLS is requested... yes
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for tgetent in -ltinfo... yes
+checking crypt.h usability... yes
+checking crypt.h presence... yes
+checking for crypt.h... yes
+checking for union semun... no
+checking for loff_t... yes
+checking for syscall pivot_root... SYS_pivot_root
+checking for syscall sched_getaffinity... SYS_sched_getaffinity
+checking for syscall ioprio_set... SYS_ioprio_set
+checking for syscall ioprio_get... SYS_ioprio_get
+checking for syscall fallocate... SYS_fallocate
+checking for valid fallocate() function... yes
+checking for syscall unshare... SYS_unshare
+checking for unshare... yes
+checking for struct termios.c_line... yes
+checking for struct stat.st_mtim.tv_nsec... yes
+checking whether ADDR_NO_RANDOMIZE is declared... yes
+checking whether FDPIC_FUNCPTRS is declared... yes
+checking whether MMAP_PAGE_ZERO is declared... yes
+checking whether ADDR_COMPAT_LAYOUT is declared... yes
+checking whether READ_IMPLIES_EXEC is declared... yes
+checking whether ADDR_LIMIT_32BIT is declared... yes
+checking whether WHOLE_SECONDS is declared... yes
+checking whether STICKY_TIMEOUTS is declared... yes
+checking whether ADDR_LIMIT_3GB is declared... yes
+checking sys/swap.h usability... yes
+checking sys/swap.h presence... yes
+checking for sys/swap.h... yes
+checking for cpu_set_t... yes
+checking whether CPU_ALLOC is declared... yes
+checking for crc32 in -lz... yes
+configure: creating ./config.status
+config.status: creating disk-utils/Makefile
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default-1 commands
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/cramfs"
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /home/alberto/BAT/bat-extratools/cramfs/config/missing --run aclocal-1.11 -I m4
+/home/alberto/BAT/bat-extratools/cramfs/config/missing: riga 52: aclocal-1.11: comando non trovato
+WARNING: `aclocal-1.11' is missing on your system.  You should only need it if
+         you modified `acinclude.m4' or `configure.ac'.  You might want
+         to install the `Automake' and `Perl' packages.  Grab them from
+         any GNU archive site.
+ cd . && /bin/bash /home/alberto/BAT/bat-extratools/cramfs/config/missing --run automake-1.11 --foreign
+/home/alberto/BAT/bat-extratools/cramfs/config/missing: riga 52: automake-1.11: comando non trovato
+WARNING: `automake-1.11' is missing on your system.  You should only need it if
+         you modified `Makefile.am', `acinclude.m4' or `configure.ac'.
+         You might want to install the `Automake' and `Perl' packages.
+         Grab them from any GNU archive site.
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /home/alberto/BAT/bat-extratools/cramfs/config/missing --run autoconf
+aclocal.m4:16: warning: this file was generated for autoconf 2.66.
+You have another version of autoconf.  It may work, but is not guaranteed to.
+If you have problems, you may need to regenerate the build system entirely.
+To do so, use the procedure documented by the package, typically `autoreconf'.
+configure.ac:85: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+m4/libtool.m4:1084: _LT_SYS_MODULE_PATH_AIX is expanded from...
+m4/libtool.m4:4211: _LT_LINKER_SHLIBS is expanded from...
+m4/libtool.m4:5343: _LT_LANG_C_CONFIG is expanded from...
+m4/libtool.m4:143: _LT_SETUP is expanded from...
+m4/libtool.m4:69: LT_INIT is expanded from...
+configure.ac:85: the top level
+configure.ac:85: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+m4/libtool.m4:4211: _LT_LINKER_SHLIBS is expanded from...
+m4/libtool.m4:5343: _LT_LANG_C_CONFIG is expanded from...
+m4/libtool.m4:143: _LT_SETUP is expanded from...
+m4/libtool.m4:69: LT_INIT is expanded from...
+configure.ac:85: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2740: _AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2740: _AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2740: _AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2740: _AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+/bin/bash ./config.status --recheck
+running CONFIG_SHELL=/bin/bash /bin/bash ./configure --without-ncurses --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+configure: Default --exec-prefix detected.
+configure:   --bindir defaults to /bin
+configure:   --sbindir defaults to /sbin
+configure:   --libdir defaults to /lib
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... gcc3
+checking for gcc option to accept ISO C99... none needed
+checking for gcc option to accept ISO Standard C... (cached) none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for an ANSI C-conforming const... yes
+checking for working volatile... yes
+checking whether byte ordering is bigendian... no
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking whether to build gtk-doc documentation... no
+checking for gtkdoc-check... no
+checking for xsltproc... no
+checking for perl... /usr/bin/perl
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for linux/compiler.h... no
+checking for linux/blkpg.h... yes
+checking for linux/major.h... yes
+checking err.h usability... yes
+checking err.h presence... yes
+checking for err.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking linux/fd.h usability... yes
+checking linux/fd.h presence... yes
+checking for linux/fd.h... yes
+checking linux/tiocl.h usability... yes
+checking linux/tiocl.h presence... yes
+checking for linux/tiocl.h... yes
+checking linux/version.h usability... yes
+checking linux/version.h presence... yes
+checking for linux/version.h... yes
+checking linux/falloc.h usability... yes
+checking linux/falloc.h presence... yes
+checking for linux/falloc.h... yes
+checking linux/cdrom.h usability... yes
+checking linux/cdrom.h presence... yes
+checking for linux/cdrom.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for stdint.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking paths.h usability... yes
+checking paths.h presence... yes
+checking for paths.h... yes
+checking pty.h usability... yes
+checking pty.h presence... yes
+checking for pty.h... yes
+checking mntent.h usability... yes
+checking mntent.h presence... yes
+checking for mntent.h... yes
+checking net/if.h usability... yes
+checking net/if.h presence... yes
+checking for net/if.h... yes
+checking net/if_dl.h usability... no
+checking net/if_dl.h presence... no
+checking for net/if_dl.h... no
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking rpcsvc/nfs_prot.h usability... yes
+checking rpcsvc/nfs_prot.h presence... yes
+checking for rpcsvc/nfs_prot.h... yes
+checking for stdlib.h... (cached) yes
+checking sys/disk.h usability... no
+checking sys/disk.h presence... no
+checking for sys/disk.h... no
+checking sys/disklabel.h usability... no
+checking sys/disklabel.h presence... no
+checking for sys/disklabel.h... no
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/ioccom.h usability... no
+checking sys/ioccom.h presence... no
+checking for sys/ioccom.h... no
+checking sys/io.h usability... yes
+checking sys/io.h presence... yes
+checking for sys/io.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/mkdev.h usability... no
+checking sys/mkdev.h presence... no
+checking for sys/mkdev.h... no
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/queue.h usability... yes
+checking sys/queue.h presence... yes
+checking for sys/queue.h... yes
+checking sys/sockio.h usability... no
+checking sys/sockio.h presence... no
+checking for sys/sockio.h... no
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/syscall.h usability... yes
+checking sys/syscall.h presence... yes
+checking for sys/syscall.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking for sys/ioctl.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking sys/user.h usability... yes
+checking sys/user.h presence... yes
+checking for sys/user.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking for unistd.h... (cached) yes
+checking linux/raw.h usability... yes
+checking linux/raw.h presence... yes
+checking for linux/raw.h... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking whether _NL_TIME_WEEK_1STDAY is declared... yes
+checking whether llseek is declared... no
+checking whether lseek64 is declared... yes
+checking for inet_aton... yes
+checking for futimens... yes
+checking for fstat64... yes
+checking for fsync... yes
+checking for getdomainname... yes
+checking for get_current_dir_name... yes
+checking for usleep... yes
+checking for nanosleep... yes
+checking for personality... yes
+checking for updwtmp... yes
+checking for jrand48... yes
+checking for lchown... yes
+checking for llseek... yes
+checking for lseek64... yes
+checking for strtoull... yes
+checking for sysconf... yes
+checking for getdtablesize... yes
+checking for getexecname... no
+checking for getrlimit... yes
+checking for srandom... yes
+checking for setresgid... yes
+checking for setresuid... yes
+checking for strndup... yes
+checking for strnlen... yes
+checking for strnchr... no
+checking for inotify_init... yes
+checking for prctl... yes
+checking for posix_fadvise... yes
+checking for getmntinfo... no
+checking for __secure_getenv... no
+checking for rpmatch... yes
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking for openat... yes
+checking for fstatat... yes
+checking for unlinkat... yes
+checking for struct sockaddr.sa_len... no
+checking for library containing gethostbyname... none required
+checking for library containing socket... none required
+checking for dirfd... yes
+checking whether program_invocation_short_name is defined... yes
+checking whether __progname is defined... yes
+checking whether the target supports thread-local storage... yes
+checking for UUID... no
+checking for uuid_is_null in -luuid... no
+configure: WARNING: uuid library is not found; mkswap(8) will not generate UUIDs
+checking for openpty in -lutil... yes
+checking for tgetnum in -ltermcap... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for ld used by GCC... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking whether NLS is requested... yes
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for tgetent in -ltinfo... yes
+checking crypt.h usability... yes
+checking crypt.h presence... yes
+checking for crypt.h... yes
+checking for union semun... no
+checking for loff_t... yes
+checking for syscall pivot_root... SYS_pivot_root
+checking for syscall sched_getaffinity... SYS_sched_getaffinity
+checking for syscall ioprio_set... SYS_ioprio_set
+checking for syscall ioprio_get... SYS_ioprio_get
+checking for syscall fallocate... SYS_fallocate
+checking for valid fallocate() function... yes
+checking for syscall unshare... SYS_unshare
+checking for unshare... yes
+checking for struct termios.c_line... yes
+checking for struct stat.st_mtim.tv_nsec... yes
+checking whether ADDR_NO_RANDOMIZE is declared... yes
+checking whether FDPIC_FUNCPTRS is declared... yes
+checking whether MMAP_PAGE_ZERO is declared... yes
+checking whether ADDR_COMPAT_LAYOUT is declared... yes
+checking whether READ_IMPLIES_EXEC is declared... yes
+checking whether ADDR_LIMIT_32BIT is declared... yes
+checking whether WHOLE_SECONDS is declared... yes
+checking whether STICKY_TIMEOUTS is declared... yes
+checking whether ADDR_LIMIT_3GB is declared... yes
+checking sys/swap.h usability... yes
+checking sys/swap.h presence... yes
+checking for sys/swap.h... yes
+checking for cpu_set_t... yes
+checking whether CPU_ALLOC is declared... yes
+checking for crc32 in -lz... yes
+configure: creating ./config.status
+ /bin/bash ./config.status
+config.status: creating disk-utils/Makefile
+config.status: creating Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default-1 commands
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /home/alberto/BAT/bat-extratools/cramfs/config/missing --run autoheader)
+configure.ac:85: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+m4/libtool.m4:1084: _LT_SYS_MODULE_PATH_AIX is expanded from...
+m4/libtool.m4:4211: _LT_LINKER_SHLIBS is expanded from...
+m4/libtool.m4:5343: _LT_LANG_C_CONFIG is expanded from...
+m4/libtool.m4:143: _LT_SETUP is expanded from...
+m4/libtool.m4:69: LT_INIT is expanded from...
+configure.ac:85: the top level
+configure.ac:85: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+m4/libtool.m4:4211: _LT_LINKER_SHLIBS is expanded from...
+m4/libtool.m4:5343: _LT_LANG_C_CONFIG is expanded from...
+m4/libtool.m4:143: _LT_SETUP is expanded from...
+m4/libtool.m4:69: LT_INIT is expanded from...
+configure.ac:85: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2740: _AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2740: _AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2740: _AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+configure.ac:331: warning: AC_LANG_CONFTEST: no AC_LANG_SOURCE call detected in body
+../../lib/autoconf/lang.m4:193: AC_LANG_CONFTEST is expanded from...
+../../lib/autoconf/general.m4:2672: _AC_LINK_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2689: AC_LINK_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2740: _AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2759: AC_RUN_IFELSE is expanded from...
+../../lib/m4sugar/m4sh.m4:639: AS_IF is expanded from...
+../../lib/autoconf/general.m4:2042: AC_CACHE_VAL is expanded from...
+../../lib/autoconf/general.m4:2063: AC_CACHE_CHECK is expanded from...
+m4/tls.m4:13: AX_CHECK_TLS is expanded from...
+configure.ac:331: the top level
+rm -f stamp-h1
+touch config.h.in
+cd . && /bin/bash ./config.status config.h
+config.status: creating config.h
+make  all-recursive
+make[3]: ingresso nella directory "/home/alberto/BAT/bat-extratools/cramfs"
+Making all in disk-utils
+make[4]: ingresso nella directory "/home/alberto/BAT/bat-extratools/cramfs/disk-utils"
+  CC     fsck.cramfs.o
+  CC     blkdev.o
+  CC     linux_version.o
+  CC     cramfs_common.o
+  CCLD   fsck.cramfs
+make[4]: uscita dalla directory "/home/alberto/BAT/bat-extratools/cramfs/disk-utils"
+make[4]: ingresso nella directory "/home/alberto/BAT/bat-extratools/cramfs"
+make[4]: uscita dalla directory "/home/alberto/BAT/bat-extratools/cramfs"
+make[3]: uscita dalla directory "/home/alberto/BAT/bat-extratools/cramfs"
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/cramfs"
+mv cramfs/disk-utils/fsck.cramfs cramfs/disk-utils/bat-fsck.cramfs
+cd simg2img; make
+make[2]: ingresso nella directory "/home/alberto/BAT/bat-extratools/simg2img"
+cc -Iinclude -c simg2img.c -o simg2img.o
+cc -Iinclude -c backed_block.c -o backed_block.o
+cc -Iinclude -c output_file.c -o output_file.o
+cc -Iinclude -c sparse.c -o sparse.o
+cc -Iinclude -c sparse_crc32.c -o sparse_crc32.o
+cc -Iinclude -c sparse_err.c -o sparse_err.o
+cc -Iinclude -c sparse_read.c -o sparse_read.o
+ar r libsparse.a backed_block.o output_file.o sparse.o sparse_crc32.o sparse_err.o sparse_read.o
+ar: creazione di libsparse.a
+cc -o bat-simg2img simg2img.o -I. -L. -lsparse -lz
+make[2]: uscita dalla directory "/home/alberto/BAT/bat-extratools/simg2img"
+make[1]: uscita dalla directory "/home/alberto/BAT/bat-extratools"
+   dh_auto_test
+dh_auto_test: Compatibility levels before 9 are deprecated (level 7 in use)
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary 
+dh: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_testroot
+   dh_prep
+   dh_auto_install
+dh_auto_install: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_install
+dh_install: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_strip
+dh_strip: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_makeshlibs
+   dh_shlibdeps
+   dh_installdeb
+dh_installdeb: Compatibility levels before 9 are deprecated (level 7 in use)
+   dh_gencontrol
+dpkg-gencontrol: warning: package bat-extratools: unused substitution variable ${shlibs:Depends}
+dpkg-gencontrol: warning: package bat-extratools: unused substitution variable ${perl:Depends}
+dpkg-gencontrol: warning: package bat-extratools: unused substitution variable ${shlibs:Depends}
+dpkg-gencontrol: warning: package bat-extratools: unused substitution variable ${perl:Depends}
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'bat-extratools-dbgsym' in '../bat-extratools-dbgsym_27.0_amd64.deb'.
+dpkg-deb: building package 'bat-extratools' in '../bat-extratools_27.0_amd64.deb'.
+ dpkg-genbuildinfo
+ dpkg-genchanges  >../bat-extratools_27.0_amd64.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --after-build bat-extratools
+dpkg-buildpackage: info: full upload; Debian-native package (full source is included)
+Now running lintian...
+warning: the authors of lintian do not recommend running it with root privileges!
+W: bat-extratools source: package-depends-on-hardcoded-libc bat-extratools depends
+W: bat-extratools source: diff-contains-git-control-dir .git
+W: bat-extratools source: outdated-autotools-helper-file cramfs/config/config.guess 2009-11-20
+W: bat-extratools source: outdated-autotools-helper-file cramfs/config/config.sub 2009-11-20
+E: bat-extratools source: source-is-missing squashfs-broadcom40/lzma457/CPP/7zip/Compress/LZMA_Alone/lzma
+W: bat-extratools source: debhelper-but-no-misc-depends bat-extratools
+W: bat-extratools source: package-uses-deprecated-debhelper-compat-version 7
+W: bat-extratools source: ancient-standards-version 3.9.1 (current is 3.9.8)
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/08/d0a9cedf0aa09b63f28b4d31084b515194ee99.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/14/9f4a5ad12b995486f332f49af00350155dc80e.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/18/c13a95e35cd013d31ae0a7dac885cedef529a4.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/30/3ffe0703777cd69fe44d1eb1ed0aa6eb4b9d6c.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/66/6e47c0ded9ce6ca97077daba44809e9a5eef76.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/6b/5086fc133fce28e38a8154a20c9ee57a0010bf.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/af/2c8d66ed2144e3f00945cad921db2b17d7dbd2.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/b0/a2952c746a87f67b9f5e597102e867ba8caf8b.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/cb/cc7940c89887946622e947d72f19535512a69c.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/f8/dedf13b5b87c57686036fc9dd8318c044b9748.debug
+W: bat-extratools-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/fd/5adf8d8e47fd468c278602ce819068761399c2.debug
+E: bat-extratools: helper-templates-in-copyright
+W: bat-extratools: binary-without-manpage usr/bin/bat-code2html
+W: bat-extratools: binary-without-manpage usr/bin/bat-fsck.cramfs
+W: bat-extratools: binary-without-manpage usr/bin/bat-minix
+W: bat-extratools: binary-without-manpage usr/bin/bat-romfsck
+W: bat-extratools: binary-without-manpage usr/bin/bat-simg2img
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-atheros
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-atheros2
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-atheros40
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-broadcom
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-broadcom40
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-ddwrt
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-openwrt
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-ralink
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs-realtek
+W: bat-extratools: binary-without-manpage usr/bin/bat-unsquashfs42
+W: bat-extratools: binary-without-manpage usr/bin/bat-unyaffs
+Finished running lintian.
