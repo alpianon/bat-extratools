@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Mon, 12 Sep 2016 12:15:41 +0200
+Source: bat-extratools
+Binary: bat-extratools
+Architecture: source amd64
+Version: 27.0
+Distribution: unstable
+Urgency: medium
+Maintainer: Armijn Hemel <armijn@binaryanalysis.org>
+Changed-By: Armijn Hemel <armijn@binaryanalysis.org>
+Description:
+ bat-extratools - set of helper tools for the Binary Analysis Tool
+Changes:
+ bat-extratools (27.0) unstable; urgency=medium
+ .
+   * updated bat-unyaffs to unpack more yaffs2 variants
+Checksums-Sha1:
+ f98ded4177e935cf6232f8207ccd6af172a756bf 630 bat-extratools_27.0.dsc
+ 4317269414c6c485d96a6e93bee952880ba4fef9 19004517 bat-extratools_27.0.tar.gz
+ bf4312a2ae58dd5c0a3c2eb92dec31c725320380 234122 bat-extratools_27.0_amd64.deb
+Checksums-Sha256:
+ d9e829f7d0a3bd6d38a43f1a8b6362cbe278d4e273ef4d782434a97d7defadff 630 bat-extratools_27.0.dsc
+ 0d41efea6aab594dc13997aa97e3d35454832d1c0fee599f7a185a653f9fe25e 19004517 bat-extratools_27.0.tar.gz
+ 5c5cff681db51d50549b552036871b2aa50b165bf5af34394fad043c0ca14cd8 234122 bat-extratools_27.0_amd64.deb
+Files:
+ acf00a42718a539f9e90e3a704997061 630 misc extra bat-extratools_27.0.dsc
+ ec84a6ef125345c1b758f048404636cb 19004517 misc extra bat-extratools_27.0.tar.gz
+ 95a84bd49e81e51ffb3553d4bf43cf45 234122 misc extra bat-extratools_27.0_amd64.deb
